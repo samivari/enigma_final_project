@@ -1,5 +1,6 @@
 require 'date'
 require './lib/enigma'
+require 'timecop'
 
 RSpec.describe 'Enigma' do
   it 'exists' do
@@ -11,6 +12,7 @@ RSpec.describe 'Enigma' do
     context 'when all three arguments are supplied' do
       it 'can encrypt messages' do
         enigma = Enigma.new
+
         actual = enigma.encrypt('hello world', '02715', '040895')
         expected = {
           encryption: 'keder ohulw',

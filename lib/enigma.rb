@@ -17,7 +17,13 @@ class Enigma
     DateGenerator
   end
 
-  def encrypt(message, key = generated_key, date = generated_date); end
+  def encrypt(message, key = generated_key, date = generated_date)
+    encrypt = {
+      encryption: message,
+      key: key,
+      date: date
+    }
+  end
 
   def generated_key
     key_generator.generate

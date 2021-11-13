@@ -1,6 +1,6 @@
 require 'date'
 class DateGenerator
   def self.generate
-    date = Date.today.strftime('%m%d%y')
+    date = Date.today.strftime('%d%m%y')
   end
 end

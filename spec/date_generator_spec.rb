@@ -20,7 +20,7 @@ RSpec.describe 'DateGenerator' do
 
     it 'generates a different date' do
       date_generator = DateGenerator
-      Timecop.travel('950802')
+      Timecop.travel('950208')
       actual = date_generator.generate
 
       expected = '080295'
