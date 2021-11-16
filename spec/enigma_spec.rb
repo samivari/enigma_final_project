@@ -1,6 +1,5 @@
 require 'date'
 require './lib/enigma'
-require 'timecop'
 
 RSpec.describe 'Enigma' do
   it 'exists' do
@@ -10,7 +9,7 @@ RSpec.describe 'Enigma' do
 
   describe '#encrypt/3' do
     context 'when all three arguments are supplied' do
-      it 'can encrypt messages' do
+      xit 'can encrypt messages' do
         enigma = Enigma.new
 
         actual = enigma.encrypt('hello world', '02715', '040895')
@@ -28,7 +27,7 @@ RSpec.describe 'Enigma' do
         date = '111121'
         enigma = Enigma.new
         actual = enigma.encrypt('hello world', '02715')
-        expect = {
+        expected = {
           encryption: 'keder ohulw',
           key: '02715',
           date: date
@@ -39,11 +38,11 @@ RSpec.describe 'Enigma' do
 
     context 'when date and key are not supplied' do
       xit 'can encrypt messages' do
-        date = '111121'
-        key = '01234'
         enigma = Enigma.new
+        date = enigma.generated_date
+        key = enigma.generated_key
         actual = enigma.encrypt('hello world')
-        expect = {
+        expected = {
           encryption: 'keder ohulw',
           key: key,
           date: date
@@ -51,5 +50,13 @@ RSpec.describe 'Enigma' do
         expect(actual).to eq(expected)
       end
     end
+  end
+
+  it 'turns the key into a shift' do
+    enigma = Enigma.new
+    key = '02715'
+    actual = enigma.key_shift(key)
+    expected = %w[02 27 71 15]
+    expect(actual).to eq(expected)
   end
 end

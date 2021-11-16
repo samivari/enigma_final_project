@@ -29,6 +29,10 @@ class Enigma
     key_generator.generate
   end
 
+  def key_shift(key = generated_key)
+    key.map do |key|
+   end
+
   def generated_date
     date_generator.generate
   end
