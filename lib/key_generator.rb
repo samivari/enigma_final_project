@@ -1,5 +1,5 @@
 class KeyGenerator
-  def self.generate
-    key = rand(0..99_999).to_s.rjust(5, '0')
+  def initialize(key = random_num)
+    @key = key
   end
 end
