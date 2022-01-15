@@ -5,12 +5,16 @@ class KeyGenerator
     @key = key
   end
 
-  def key_offset
+  def keys
     {
       A: key[0..1],
       B: key[1..2],
       C: key[2..3],
       D: key[3..4]
     }
+  end
+
+  def random_num
+    rand(0o0000..99_999).to_s
   end
 end
