@@ -9,4 +9,8 @@ class Encode
   def alphabet
     ('a'..'z').to_a << ' '
   end
+
+  def encode_letter(shifts)
+    alphabet.rotate(shifts).first
+  end
 end
