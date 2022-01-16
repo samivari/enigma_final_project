@@ -1,7 +1,9 @@
 class Offset
   attr_accessor :date
 
-  def initialize(date = todays_date); end
+  def initialize(date = todays_date)
+    @date = date
+  end
 
   def todays_date
     Time.now.strftime('%d%m%y')
