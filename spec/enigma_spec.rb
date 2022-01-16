@@ -12,13 +12,13 @@ RSpec.describe 'Enigma' do
 
   it 'can encrypt' do
     key = Key.new('02715')
-    date = Timecop.travel('950804')
-    offset = Offset.new(date)
-    shift = Shift.new(key, offset)
+    timestamp = Timecop.travel('950804')
+    offset = Offset.new(timestamp)
+    date = offset.todays_date
+    shift = Shift.new(key, date)
     enigma = Enigma.new
-    require 'pry'
-    binding.pry
-    expect(enigma.encrypt('hello world', key, offset.todays_date)).to
-    eq({ encryption: 'keder ohulw', key: '02715', date: '040895' })
+    actual = enigma.encrypt('hello world', key.key, offset.todays_date)
+    expected = { encryption: 'keder ohulw', key: '02715', date: '040895' }
+    expect(actual).to eq(expected)
   end
 end

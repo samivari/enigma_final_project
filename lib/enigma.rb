@@ -4,7 +4,7 @@ class Enigma
 
     encode = Encode.new(message, shift.shifts)
     {
-      encryption: encode.encode_message,
+      encryption: encode.encode,
       key: key,
       date: date
     }
