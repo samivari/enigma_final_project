@@ -26,7 +26,7 @@ RSpec.describe 'encode' do
     expect(encode.encode_letter(10)).to eq('k')
   end
 
-  xit 'can encode a message' do
+  it 'can encode a message' do
     encode = Encode.new('hello world', { A: 3, B: 27, C: 73, D: 20 })
 
     expect(encode.encode).to eq('keder ohulw')
