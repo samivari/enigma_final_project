@@ -1,2 +1,3 @@
-require './lib/key_generator'
-require './lib/date_generator'
+class Enigma
+  def encrypt(message, key = random_num, date = todays_date); end
+end
