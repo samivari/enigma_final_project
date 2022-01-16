@@ -1,6 +1,18 @@
+require './lib/encode'
+
 RSpec.describe 'encode' do
   it 'exists' do
     encode = Encode.new('hello world', { A: 13, B: 106, C: 92, D: 49 })
     expect(encode).to be_a(Encode)
+  end
+
+  it 'has a message' do
+    encode = Encode.new('hello world', { A: 13, B: 106, C: 92, D: 49 })
+    expect(encode.message).to eq('hello world')
+  end
+
+  it 'has shifts' do
+    encode = Encode.new('hello world', { A: 13, B: 106, C: 92, D: 49 })
+    expect(encode.shifts).to eq({ A: 13, B: 106, C: 92, D: 49 })
   end
 end

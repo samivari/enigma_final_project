@@ -1,5 +1,8 @@
 class Encode
-  def initialize(message,)
-    @argument = argument
+  attr_accessor :message, :shifts
+
+  def initialize(message, shifts)
+    @message = message
+    @shifts = shifts
   end
 end
