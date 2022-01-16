@@ -15,4 +15,9 @@ RSpec.describe 'encode' do
     encode = Encode.new('hello world', { A: 13, B: 106, C: 92, D: 49 })
     expect(encode.shifts).to eq({ A: 13, B: 106, C: 92, D: 49 })
   end
+
+  it 'has an alphabet set' do
+    encode = Encode.new('hello world', { A: 13, B: 106, C: 92, D: 49 })
+    expect(encode.alphabet).to eq('abcdefghijklmnopqrstuvwxyz '.split(''))
+  end
 end
