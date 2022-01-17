@@ -3,6 +3,7 @@ require './lib/shift'
 require './lib/encode'
 require './lib/key'
 require './lib/decode'
+require './lib/offset'
 require 'timecop'
 
 RSpec.describe 'Enigma' do
@@ -13,7 +14,7 @@ RSpec.describe 'Enigma' do
 
   it 'can encrypt' do
     key = Key.new('02715')
-    offset = Offset.new(Timecop.travel('950804'))
+    offset = Offset.new(Timecop.freeze(Time.local(1995, 8, 4)))
     enigma = Enigma.new
     actual = enigma.encrypt('hello world', key.key, offset.date_format)
     expected = { encryption: 'keder ohulw', key: '02715', date: '040895' }

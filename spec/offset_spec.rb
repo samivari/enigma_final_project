@@ -16,6 +16,7 @@ RSpec.describe 'offset' do
   it 'squares the date' do
     timestamp = Timecop.travel('220113')
     offset = Offset.new(timestamp)
+
     expect(offset.squared).to eq('16931734884')
   end
 
