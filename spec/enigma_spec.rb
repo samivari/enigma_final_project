@@ -38,4 +38,14 @@ RSpec.describe 'Enigma' do
     expected = { decryption: 'hello world', key: '02715', date: '040895' }
     expect(actual).to eq(expected)
   end
+
+  it 'can decrypt with no date' do
+    key = Key.new('02715')
+    Timecop.freeze(Time.local(2022, 1, 16))
+    offset = Offset.new
+    enigma = Enigma.new
+    actual = enigma.decrypt('nmjduhugxtb', key.key)
+    expected = { decryption: 'hello world', key: '02715', date: '160122' }
+    expect(actual).to eq(expected)
+  end
 end
