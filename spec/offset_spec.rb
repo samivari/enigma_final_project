@@ -8,20 +8,26 @@ RSpec.describe 'offset' do
   end
 
   it 'can reformat the date' do
-    date = Timecop.travel('220113')
-    offset = Offset.new(date)
-    expect(offset.todays_date).to eq('130122')
+    timestamp = Timecop.travel('220113')
+    offset = Offset.new(timestamp)
+    expect(offset.date_format).to eq('130122')
   end
 
   it 'squares the date' do
-    date = Timecop.travel('220113')
-    offset = Offset.new(date)
+    timestamp = Timecop.travel('220113')
+    offset = Offset.new(timestamp)
     expect(offset.squared).to eq('16931734884')
   end
 
   it 'takes the last four digits from the squared number' do
-    date = Timecop.travel('220113')
-    offset = Offset.new(date)
+    timestamp = Timecop.travel('220113')
+    offset = Offset.new(timestamp)
     expect(offset.last_four).to eq('4884')
+  end
+
+  it 'generates todays date' do
+    Timecop.freeze(Time.local(2022, 1, 16))
+    offset = Offset.new
+    expect(offset.date).to eq('160122')
   end
 end
