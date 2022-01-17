@@ -18,7 +18,7 @@ RSpec.describe 'shift' do
     key = Key.new('09845')
     timestamp = Timecop.travel('220113')
     offset = Offset.new(timestamp)
-    date = offset.todays_date
+    date = offset.date_format
     shift = Shift.new(key, date)
     expect(shift.date).to eq('130122')
   end
@@ -26,8 +26,8 @@ RSpec.describe 'shift' do
   it 'has a shift' do
     timestamp = Timecop.travel('220113')
     offset = Offset.new(timestamp)
-    date = offset.todays_date
-    shift = Shift.new('09845', date)
+    date_given = offset.date
+    shift = Shift.new('09845', date_given)
     expect(shift.shifts).to eq({ A: 13, B: 106, C: 92, D: 49 })
   end
 end
