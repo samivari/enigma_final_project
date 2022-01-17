@@ -1,4 +1,5 @@
 require './lib/key'
+require 'spec_helper'
 
 RSpec.describe 'Key' do
   it 'exists' do

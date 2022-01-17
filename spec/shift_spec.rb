@@ -2,6 +2,7 @@ require './lib/shift'
 require 'timecop'
 require './key'
 require './offset'
+require 'spec_helper'
 
 RSpec.describe 'shift' do
   it 'exists' do

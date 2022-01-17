@@ -1,11 +1,13 @@
 require './lib/offset'
+require './lib/shift'
+require './lib/encode'
+require './lib/decode'
+require 'time'
 
 class Enigma
   def encrypt(message, key = rand(10_000..99_999).to_s, date = Time.now.strftime('%d%m%y'))
     shift = Shift.new(key, date)
-
     encode = Encode.new(message, shift.shifts)
-
     {
       encryption: encode.encode,
       key: key,

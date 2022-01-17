@@ -1,4 +1,5 @@
 require './lib/encode'
+require 'spec_helper'
 
 RSpec.describe 'encode' do
   it 'exists' do
