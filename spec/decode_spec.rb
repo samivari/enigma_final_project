@@ -21,9 +21,9 @@ RSpec.describe 'decode' do
     expect(decode.alphabet).to eq('abcdefghijklmnopqrstuvwxyz '.split(''))
   end
 
-  xit 'can shift one letter' do
+  it 'can shift one letter' do
     decode = Decode.new('keder ohulw', { A: 3, B: 27, C: 73, D: 20 })
-    expect(decode.decode_letter(10)).to eq('k')
+    expect(decode.decode_letter(7)).to eq('h')
   end
 
   xit 'can decode a message' do
