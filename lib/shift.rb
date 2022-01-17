@@ -10,7 +10,7 @@ class Shift
   end
 
   def shifts
-    offset = Offset.new(date)
+    offset = Offset.new(@date)
     last_four = offset.last_four
 
     {
