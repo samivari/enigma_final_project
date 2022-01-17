@@ -26,9 +26,9 @@ RSpec.describe 'decode' do
     expect(decode.decode_letter(7)).to eq('h')
   end
 
-  xit 'can decode a message' do
+  it 'can decode a message' do
     decode = Decode.new('keder ohulw', { A: 3, B: 27, C: 73, D: 20 })
 
-    expect(decode.decode).to eq('keder ohulw')
+    expect(decode.decode).to eq('hello world')
   end
 end
