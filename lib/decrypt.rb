@@ -15,5 +15,5 @@ class Encrypt
 
   writer.close
 
-  puts "Created #{decryption[:decryption]} with the key #{decryption[:key]} and date #{decryption[:date]}"
+  puts "Created #{writer.path} with the key #{decryption[:key]} and date #{decryption[:date]}"
 end

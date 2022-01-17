@@ -1,8 +1,5 @@
 require './lib/enigma'
-require './lib/shift'
-require './lib/encode'
 require './lib/key'
-require './lib/decode'
 require './lib/offset'
 require 'timecop'
 
