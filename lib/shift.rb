@@ -12,7 +12,6 @@ class Shift
   def shifts
     offset = Offset.new(@date)
     last_four = offset.last_four
-
     {
       A: key.keys[:A].to_i + offset.last_four[0].to_i,
       B: key.keys[:B].to_i + offset.last_four[1].to_i,

@@ -20,7 +20,6 @@ class Encode
       letter_index = alphabet.find_index(letter)
       shift = shifts_array.first
       shifts_array.rotate!
-
       encode_letter(letter_index + shifts[shift])
     end.join
   end
