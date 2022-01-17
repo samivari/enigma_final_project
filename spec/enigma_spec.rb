@@ -2,6 +2,7 @@ require './lib/enigma'
 require './lib/key'
 require './lib/offset'
 require 'timecop'
+require 'spec_helper'
 
 RSpec.describe 'Enigma' do
   it 'exists' do

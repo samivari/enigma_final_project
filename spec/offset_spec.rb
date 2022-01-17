@@ -1,5 +1,6 @@
 require './lib/offset'
 require 'timecop'
+require 'spec_helper'
 
 RSpec.describe 'offset' do
   it 'exists' do

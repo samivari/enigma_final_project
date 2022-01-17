@@ -1,3 +1,4 @@
+require 'spec_helper'
 require './lib/decode'
 
 RSpec.describe 'decode' do
