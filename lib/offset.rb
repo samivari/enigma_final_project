@@ -1,16 +1,16 @@
 class Offset
   attr_accessor :date
 
-  def initialize(date = todays_date)
+  def initialize(date = Time.now.strftime('%d%m%y'))
     @date = date
   end
 
-  def todays_date
-    Time.now.strftime('%d%m%y')
+  def date_format
+    @date.strftime('%d%m%y')
   end
 
   def squared
-    (todays_date.to_i**2).to_s
+    (date.to_i**2).to_s
   end
 
   def last_four

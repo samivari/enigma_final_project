@@ -12,13 +12,29 @@ RSpec.describe 'Enigma' do
 
   it 'can encrypt' do
     key = Key.new('02715')
-    date = Timecop.travel('950804')
-    offset = Offset.new(date)
-    shift = Shift.new(key, offset)
+    offset = Offset.new(Timecop.travel('950804'))
     enigma = Enigma.new
-    require 'pry'
-    binding.pry
-    expect(enigma.encrypt('hello world', key, offset.todays_date)).to
-    eq({ encryption: 'keder ohulw', key: '02715', date: '040895' })
+    actual = enigma.encrypt('hello world', key.key, offset.date_format)
+    expected = { encryption: 'keder ohulw', key: '02715', date: '040895' }
+    expect(actual).to eq(expected)
+  end
+
+  it 'can encrypt with no date' do
+    key = Key.new('02715')
+    Timecop.freeze(Time.local(2022, 1, 16))
+    offset = Offset.new
+    enigma = Enigma.new
+    actual = enigma.encrypt('hello world', key.key)
+    expected = { encryption: 'nmjduhugxtb', key: '02715', date: '160122' }
+    expect(actual).to eq(expected)
+  end
+
+  it 'can decrypt' do
+    key = Key.new('02715')
+    offset = Offset.new(Timecop.travel('950804'))
+    enigma = Enigma.new
+    actual = enigma.decrypt('keder ohulw', key.key, offset.date_format)
+    expected = { decryption: 'hello world', key: '02715', date: '040895' }
+    expect(actual).to eq(expected)
   end
 end

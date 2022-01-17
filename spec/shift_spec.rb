@@ -10,24 +10,24 @@ RSpec.describe 'shift' do
   end
 
   it 'has a key ' do
-    key = Key.new('09845')
-    shift = Shift.new(key, '130122')
+    shift = Shift.new('09845', '130122')
     expect(shift.key.key).to eq('09845')
   end
 
-  it 'has an offset ' do
+  it 'takes in a date' do
     key = Key.new('09845')
-    date = Timecop.travel('220113')
-    offset = Offset.new(date)
-    shift = Shift.new(key, offset)
-    expect(shift.offset.last_four).to eq('4884')
+    timestamp = Timecop.travel('220113')
+    offset = Offset.new(timestamp)
+    date = offset.date_format
+    shift = Shift.new(key, date)
+    expect(shift.date).to eq('130122')
   end
 
   it 'has a shift' do
-    key = Key.new('09845')
-    date = Timecop.travel('220113')
-    offset = Offset.new(date)
-    shift = Shift.new(key, offset)
+    timestamp = Timecop.travel('220113')
+    offset = Offset.new(timestamp)
+    date_given = offset.date
+    shift = Shift.new('09845', date_given)
     expect(shift.shifts).to eq({ A: 13, B: 106, C: 92, D: 49 })
   end
 end

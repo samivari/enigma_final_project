@@ -15,6 +15,6 @@ class Key
   end
 
   def random_num
-    rand(0o0000..99_999).to_s
+    rand(10_000..99_999).to_s
   end
 end
